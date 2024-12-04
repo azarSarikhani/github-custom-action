@@ -1,15 +1,15 @@
 name: "Error Annotator"
-description: "Parse Unity logs for errors and warnings"
-
+description: "Parses Unity Editor log files and outputs errors and warnings."
 inputs:
   log-path:
-    description: "Path to the log file"
+    description: "Path to the Unity log file."
     required: true
-    default: ""
-
+    type: string
+outputs:
+  errors:
+    description: "Parsed errors from the log file."
 runs:
-  using: "node12"
+  using: "node16"
   main: "parse_logs.js"
-
-env:
-  INPUT_LOG_PATH: ${{ inputs.log-path }}
+with:
+  log-path: ${{ inputs.log-path }}
