@@ -15,22 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Set up dependencies
         run: |
           sudo npm install @actions/github
           sudo npm install @actions/core
-        
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: main
-
-      - name: Show Git Info
-        run: git log -1 --oneline
-        
-      - name: List Files
-        run: ls -la -R .github
       
       - name: Debug Working Directory
         run: pwd
