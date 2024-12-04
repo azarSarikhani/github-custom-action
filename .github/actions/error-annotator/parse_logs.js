@@ -27,19 +27,20 @@ function createAnnotation(type, line, message) {
 }
 
 function main() {
-	const filePath = process.env.INPUT_LOG_PATH;
-	const logFilePath = process.argv[2];
-	console.log(filePath);
-	console.log(logFilePath);
+	// Debugging to check the log path input
+	console.log("Log Path from environment:", process.env.INPUT_LOG_PATH);
 
+	let filePath = process.env.INPUT_LOG_PATH || process.argv[2];
+
+	if (!filePath) {
+		console.log("::error::No log file path provided.");
+		process.exit(1);
+	}
+
+	// Check if file exists at the provided path
 	if (!fs.existsSync(filePath)) {
-		if (!fs.existsSync(logFilePath)) {
-			console.log("::error::Log file not found in filePath.");
-			process.exit(1);
-		} else {
-			console.log("::error::Log file not found in logFilePath.");
-			filePath = logFilePath;
-		}
+		console.log("::error::Log file not found at:", filePath);
+		process.exit(1);
 	}
 
 	const { errors, warnings } = parseLogFile(filePath);
