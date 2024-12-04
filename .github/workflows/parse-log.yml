@@ -33,7 +33,7 @@ jobs:
         run: ls -la -R .
 
       - name: List Action Directory
-        run: ls -la -R ./github/actions/error-annotator  
+        run: ls -la -R .github/actions/error-annotator  
       
       - name: Parse Unity Logs
         uses: ./github/actions/error-annotator
