@@ -24,16 +24,16 @@ jobs:
         run: git log -1 --oneline
         
       - name: List Files
-        run: ls -R .github
+        run: ls -la -R .github
       
       - name: Debug Working Directory
         run: pwd
 
       - name: List Repository Root
-        run: ls -R .
+        run: ls -la -R .
 
       - name: List Action Directory
-        run: ls -R ./github/actions/error-annotator  
+        run: ls -la -R ./github/actions/error-annotator  
       
       - name: Parse Unity Logs
         uses: ./github/actions/error-annotator
