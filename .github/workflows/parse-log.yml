@@ -20,8 +20,17 @@ jobs:
       - name: List Files
         run: ls -R .github
       
+      - name: Debug Working Directory
+        run: pwd
 
+      - name: List Action Directory
+        run: ls -R ./github/actions/error-annotator
+
+      - name: List Repository Root
+        run: ls -R .
+      
       - name: Parse Unity Logs
         uses: ./github/actions/error-annotator
         with:
           log-path: ${{ inputs.log-path }}
+

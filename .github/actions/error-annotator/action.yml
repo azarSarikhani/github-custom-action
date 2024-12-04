@@ -1,5 +1,5 @@
-name: "Parse Unity Logs"
-description: "Parse Unity Editor log files and output errors and warnings."
+name: "Error Annotator"
+description: "Parses Unity Editor log files and outputs errors and warnings."
 inputs:
   log-path:
     description: "Path to the Unity log file."
