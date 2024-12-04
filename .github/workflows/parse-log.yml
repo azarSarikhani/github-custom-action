@@ -23,11 +23,11 @@ jobs:
       - name: Debug Working Directory
         run: pwd
 
-      - name: List Action Directory
-        run: ls -R ./github/actions/error-annotator
-
       - name: List Repository Root
         run: ls -R .
+
+      - name: List Action Directory
+        run: ls -R ./github/actions/error-annotator  
       
       - name: Parse Unity Logs
         uses: ./github/actions/error-annotator
