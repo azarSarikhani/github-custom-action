@@ -1,0 +1,23 @@
+name: Parse Unity Logs
+on:
+  workflow_dispatch:
+    inputs:
+      log-path:
+        description: "Path to the log file"
+        required: true
+        type: choice
+        options:
+          - "logs/sample-project-failure.log"
+          - "logs/sample-project-success.log"
+
+jobs:
+  parse-logs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Parse Unity Logs
+        uses: ./github/actions/my-custom-action
+        with:
+          log-path: ${{ inputs.log-path }}

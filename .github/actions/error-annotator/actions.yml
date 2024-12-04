@@ -1,0 +1,13 @@
+name: "Parse Unity Logs"
+description: "Parse Unity Editor log files and output errors and warnings."
+inputs:
+  log-path:
+    description: "Path to the Unity log file."
+    required: true
+    type: string
+outputs:
+  errors:
+    description: "Parsed errors from the log file."
+runs:
+  using: "node16"
+  main: "parse_logs.js"
