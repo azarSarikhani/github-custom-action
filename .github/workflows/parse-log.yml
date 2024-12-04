@@ -13,7 +13,12 @@ on:
 jobs:
   parse-logs:
     runs-on: ubuntu-latest
+    
     steps:
+      - name: Set up dependencies
+        run: |
+          sudo npm install @actions/github
+        
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
