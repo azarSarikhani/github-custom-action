@@ -34,6 +34,9 @@ jobs:
 
       - name: List Action Directory
         run: ls -la -R .github/actions/error-annotator  
+
+      - name: Debug Log Path
+        run: echo "log-path input -- ${{ inputs.log-path }}"
       
       - name: Parse Unity Logs
         uses: ./.github/actions/error-annotator
