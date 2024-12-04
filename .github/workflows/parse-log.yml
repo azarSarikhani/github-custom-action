@@ -17,6 +17,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: List Files
+        run: ls -R .github
+      
+
       - name: Parse Unity Logs
         uses: ./github/actions/error-annotator
         with:
