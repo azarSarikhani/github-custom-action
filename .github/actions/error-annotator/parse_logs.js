@@ -1,3 +1,21 @@
+const core = require('@actions/core');
+const github = require('@actions/github');
+
+//try {
+//    // `who-to-greet` input defined in action metadata file
+//    const nameToGreet = core.getInput('who-to-greet');
+//    console.log(`Hello ${nameToGreet}!`);
+//    const time = (new Date()).toTimeString();
+//    core.setOutput("time", time);
+//    // Get the JSON webhook payload for the event that triggered the workflow
+//    const payload = JSON.stringify(github.context.payload, undefined, 2)
+//    console.log(`The event payload: ${payload}`);
+//  } catch (error) {
+//    core.setFailed(error.message);
+//  }
+
+
+
 const fs = require("fs");
 
 function parseLogFile(filePath) {
@@ -28,9 +46,11 @@ function createAnnotation(type, line, message) {
 
 function main() {
 	// Debugging to check the log path input
-	console.log("Log Path from environment:", process.env.INPUT_LOG_PATH);
+	//console.log("Log Path from environment:", process.env.INPUT_LOG_PATH);
 
-	let filePath = process.env.INPUT_LOG_PATH || process.argv[2];
+	//let filePath = process.env.INPUT_LOG_PATH || process.argv[2];
+    const filePath = core.getInput('log-path');
+    console.log("Log Path from environment:", core.getInput('log-path'));
 
 	if (!filePath) {
 		console.log("::error::No log file path provided.");
