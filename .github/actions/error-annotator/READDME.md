@@ -16,6 +16,7 @@ This GitHub Action parses Unity Editor log files to identify and annotate errors
 
 ```bash
 	npm install @actions/core
+```
 
 ---
 
@@ -74,5 +75,6 @@ jobs:
         uses: ./.github/actions/error-annotator
         with:
           log-path: ${{ inputs.log-path }}
+```
 
 
