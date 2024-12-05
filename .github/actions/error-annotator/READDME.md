@@ -1,10 +1,10 @@
 # Unity Logs Error and Warning Annotator
 
-This GitHub Action parses Unity Editor log files to identify and annotate errors and warnings. It is designed to integrate seamlessly into your CI/CD pipelines to enhance debugging and streamline issue resolution.
+This GitHub Action parses Unity Editor log files to identify and annotate errors and warnings. It is designed to integrate seamlessly into your CI/CD pipelines to enhance debugging.
 
 ## **Features**
 
-- Extracts errors and warnings from Unity log files. This includes any distict error, warning, fail, and exception words in the log.
+- Extracts errors and warnings from Unity log files. This includes any distinct error, warning, fail, and exception words in the log.
 - Annotates errors and warnings in GitHub Actions for visibility.
 - Outputs a list of parsed errors for further use in workflows.
 
@@ -17,7 +17,6 @@ This GitHub Action parses Unity Editor log files to identify and annotate errors
 ```bash
 	npm install @actions/core
 ```
-
 ---
 
 ## **Inputs**
@@ -76,5 +75,3 @@ jobs:
         with:
           log-path: ${{ inputs.log-path }}
 ```
-
-
