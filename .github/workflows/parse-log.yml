@@ -9,6 +9,12 @@ on:
         options:
           - "logs/sample-project-failure.log"
           - "logs/sample-project-success.log"
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   parse-logs:
@@ -35,6 +41,23 @@ jobs:
 
       - name: Debug Log Path
         run: echo "log-path input -- ${{ inputs.log-path }}"
+
+      - name: Determine Log Path
+        id: log_path
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "Using log-path from manual input: ${{ inputs.log-path }}"
+            echo "log-path=${{ inputs.log-path }}" >> $GITHUB_ENV
+          else
+            echo "Determining default log path for push/pull_request..."
+            DEFAULT_LOG="logs/sample-project-failure.log"
+            if [[ -z "$DEFAULT_LOG" ]]; then
+              echo "::error::No log files found in build directory."
+              exit 1
+            fi
+            echo "Default log detected: $DEFAULT_LOG"
+            echo "log-path=$DEFAULT_LOG" >> $GITHUB_ENV
+          fi
       
       - name: Parse Unity Logs
         uses: ./.github/actions/error-annotator
