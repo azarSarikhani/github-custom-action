@@ -12,7 +12,12 @@ This GitHub Action parses Unity Editor log files to identify and annotate errors
 
 ## **Requirements**
 
-- 
+- @actions/core is required to have been either present in the repo or to have been installed on the runner. It could be installed in either using
+
+```bash
+	npm install @actions/core
+
+---
 
 ## **Inputs**
 
@@ -23,10 +28,7 @@ This GitHub Action parses Unity Editor log files to identify and annotate errors
 
 Provide the relative path to the Unity log file within the repository.
 
-- @actions/core is required to have been either present in the repo or to have been installed on the runner. It could be installed in either using
-
-```bash
-	npm install @actions/core
+---
 
 ## **Outputs**
 
