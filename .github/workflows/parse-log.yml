@@ -39,9 +39,6 @@ jobs:
       - name: List Action Directory
         run: ls -la -R .github/actions/error-annotator  
 
-      - name: Debug Log Path
-        run: echo "log-path input -- ${{ inputs.log-path }}"
-
       - name: Determine Log Path
         id: log_path
         run: |
@@ -58,9 +55,12 @@ jobs:
             echo "Default log detected: $DEFAULT_LOG"
             echo "log-path=$DEFAULT_LOG" >> $GITHUB_ENV
           fi
+
+      - name: Debug Log Path
+        run: echo "log-path input -- ${{ env.log-path }}"
       
       - name: Parse Unity Logs
         uses: ./.github/actions/error-annotator
         with:
-          log-path: ${{ inputs.log-path }}
+          log-path: ${{ env.log-path }}
 
