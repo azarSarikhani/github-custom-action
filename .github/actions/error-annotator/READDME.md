@@ -32,7 +32,7 @@ Provide the relative path to the Unity log file within the repository.
 
 ## **Outputs**
 
-### **`errors`** and ### **`warnings`** 
+### **`errors`** and  **`warnings`** 
 - **Description**: A list of parsed errors and warnings extracted from the log file.
 
 If no errors are found, the output will explicitly state "No errors found."
