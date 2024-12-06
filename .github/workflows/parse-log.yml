@@ -78,6 +78,12 @@ jobs:
 
       - name: Print output
         run: |
-          echo "output of log step for variable time is ${{ steps.logStep.outputs.time }}"
-          echo "output of log step for variable error is ${{ steps.logStep.outputs.errors }}"
+          echo "Errors from log step:"
+          errors="${{ steps.logStep.outputs.errors }}"
+          # Check if errors is a JSON string
+          if [[ $errors == "["* ]]; then
+            echo "$errors" | jq -r '.[]' 
+          else
+            echo "No errors found."
+          fi
         

@@ -57,7 +57,10 @@ function main() {
         if (errors.length > 0) {
             core.setOutput("errors", JSON.stringify(errors.map((e) => e.text)));
 			//debug message
-			console.log("Errors output:", JSON.stringify(errors));
+			errors.forEach((error) => {
+				console.log(`Error at line ${error.line}: ${error.text}`);
+			});
+		
         }
 		//test setting time as output
 		const time = (new Date()).toTimeString();
