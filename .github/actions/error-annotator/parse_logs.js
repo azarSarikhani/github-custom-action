@@ -55,7 +55,7 @@ function main() {
 
         // Set errors to action output
         if (errors.length > 0) {
-            core.setOutput("errors", JSON.stringify(errors.map((e) => e.text)));
+            core.setOutput("errors", JSON.stringify(errors));
 			//debug message
 			errors.forEach((error) => {
 				console.log(`Error at line ${error.line}: ${error.text}`);
