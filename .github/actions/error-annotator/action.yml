@@ -9,5 +9,5 @@ outputs:
   errors:
     description: "Parsed errors from the log file."
 runs:
-  using: "node22"
+  using: "node20"
   main: "parse_logs.js"
