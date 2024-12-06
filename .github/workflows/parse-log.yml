@@ -79,4 +79,4 @@ jobs:
       - name: Print output
         run: |
           echo "output of log step for variable time is ${{ steps.logStep.outputs.time }}"
-          echo "output of log step for variable error is ${{ steps.logStep.outputs.time }}"
+          echo "output of log step for variable error is ${{ steps.logStep.outputs.errors }}"
