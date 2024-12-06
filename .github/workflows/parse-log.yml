@@ -71,8 +71,9 @@ jobs:
           log-path: ${{ env.log-path }}
 
       - name: Print output
-        run: |
-          time="${{ steps.logStep.outputs.time }}"
-          output="${{ steps.logStep.outputs }}"
-          errors="${{ steps.logStep.outputs.errors }}"
+        run: 
+          node -e '
+          const errors = ${{ steps.logStep.outputs.errors }};
+          console.log("Type of errors from log step:", errors.type());
+          '
         
