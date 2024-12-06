@@ -41,7 +41,7 @@ jobs:
       - name: Set up dependencies
         run: sudo npm install @actions/core
       
-      - name: Debug Working Directory
+      - name: Print Working Directory
         run: pwd
 
       - name: List Repository Root
@@ -67,7 +67,7 @@ jobs:
             echo "log-path=$DEFAULT_LOG" >> $GITHUB_ENV
           fi
 
-      - name: Debug Log Path
+      - name: Print Log Path
         run: echo "log-path input -- ${{ env.log-path }}"
       
       - name: Parse Unity Logs
