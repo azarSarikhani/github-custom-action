@@ -73,17 +73,11 @@ jobs:
       - name: Print output
         run: |
           node -e "
-          const errors = ${{ steps.logStep.outputs.errors }};
           try {
-            const parsedErrors = JSON.parse(errors);
-            if (Array.isArray(parsedErrors) && parsedErrors.length > 0) {
-              console.log("Errors from log step:");
-              console.log(parsedErrors.map((e) => `${e.line}: ${e.text}`).join(", "));
-            } else {
-              console.log("No errors found.");
-            }
-          } catch (err) {
-            console.error("Failed to parse errors as JSON:", err.message);
+            const errors = process.env.ERRORS;
+          }
+          catch (err) {
+            console.error('Failed to store errors from ENV', err.message);
             process.exit(1);
           }"
         

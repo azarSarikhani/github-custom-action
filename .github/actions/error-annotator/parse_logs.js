@@ -55,11 +55,10 @@ function main() {
 
         // Set errors to action output
         if (errors.length > 0) {
-            core.setOutput("errors", JSON.stringify(errors));
+            core.setOutput("errors", JSON.stringify(errors.map((e) => e.text)));
 			//debug message
-			errors.forEach((error) => {
-				console.log(`Error at line ${error.line}: ${error.text}`);
-			});
+			const errorMessages = JSON.stringify(errors.map((e) => e.text));
+			console.log("Debug - Format of errors output:", errorMessages);
 		
         }
 		//test setting time as output
