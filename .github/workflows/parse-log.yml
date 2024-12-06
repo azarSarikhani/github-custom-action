@@ -73,11 +73,8 @@ jobs:
       - name: Print output
         run: |
           node -e "
-          try {
-            const errors = process.env.ERRORS;
-          }
-          catch (err) {
-            console.error('Failed to store errors from ENV', err.message);
-            process.exit(1);
-          }"
+          const errors = ${{ steps.logStep.outputs.errors }};
+          const time = ${{ steps.logStep.outputs.time }};
+          const outputs = ${{ steps.logStep.outputs }};
+          "
         
