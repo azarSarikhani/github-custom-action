@@ -74,5 +74,4 @@ jobs:
         run: |
           echo "Errors from log step"
           errors="${{ steps.logStep.outputs.errors }}"
-          echo $errors
         
