@@ -74,5 +74,4 @@ jobs:
         run: |
           time="${{ steps.logStep.outputs.time }}"
           output="${{ steps.logStep.outputs }}"
-          errors="${{ steps.logStep.outputs.errors }}"
         
