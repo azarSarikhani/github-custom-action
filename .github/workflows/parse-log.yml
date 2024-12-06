@@ -44,12 +44,6 @@ jobs:
       - name: Print Working Directory
         run: pwd
 
-      - name: List Repository Root
-        run: ls -a -R .
-
-      - name: List Action Directory
-        run: ls -a -R .github/actions/error-annotator
-
       - name: Determine Log Path
         id: log_path
         run: |
@@ -80,10 +74,12 @@ jobs:
         run: |
           echo "Errors from log step:"
           errors="${{ steps.logStep.outputs.errors }}"
-          # Check if errors is a JSON string
-          if [[ $errors == "["* ]]; then
-            echo "$errors" | jq -r '.[]' 
+          if [ -n "$errors" ]; then
+            IFS=', '  # Set the internal field separator to comma and space
+            for error in $errors; do
+            echo -n "$error, "  # Print errors with commas
+            done
+            echo  # To move to the next line after the loop
           else
-            echo "No errors found."
-          fi
+            echo "No errors found.
         
