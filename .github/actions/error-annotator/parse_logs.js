@@ -57,6 +57,9 @@ function main() {
         if (errors.length > 0) {
             core.setOutput("errors", JSON.stringify(errors.map((e) => e.text)));
         }
+		//test setting time as output
+		const time = (new Date()).toTimeString();
+	    core.setOutput("time", time);
     } catch (error) {
         // In case of unexpected errors fail the action gracefully and log the error message
         core.setFailed(error.message);
