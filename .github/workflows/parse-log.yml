@@ -19,6 +19,8 @@ on:
 jobs:
   parse-logs:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.time }}
     
     steps:
       - name: Fix node version
@@ -71,6 +73,7 @@ jobs:
         run: echo "log-path input -- ${{ env.log-path }}"
       
       - name: Parse Unity Logs
+        id: step1
         uses: ./.github/actions/error-annotator
         with:
           log-path: ${{ env.log-path }}

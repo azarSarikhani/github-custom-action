@@ -9,7 +9,7 @@ outputs:
   errors:
     description: "Parsed errors from the log file."
   time:
-    description: 'The time we greeted you'
+    description: 'The time'
 runs:
   using: "node20"
   main: "parse_logs.js"
