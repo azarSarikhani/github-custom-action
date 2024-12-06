@@ -25,6 +25,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Print Versions
+        run: |
+          node --version
+          nmp --version
+          lsb_release -a
+
       - name: Set up dependencies
         run: |
           sudo npm install @actions/github
