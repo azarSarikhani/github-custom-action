@@ -28,7 +28,7 @@ jobs:
       - name: Print Versions
         run: |
           node --version
-          nmp --version
+          npm --version
           lsb_release -a
 
       - name: Set up dependencies
