@@ -73,8 +73,9 @@ jobs:
       - name: Print output
         run: |
           node -e "
-          const errors = ${{ steps.logStep.outputs.errors }};
-          const time = ${{ steps.logStep.outputs.time }};
-          const outputs = ${{ steps.logStep.outputs }};
+          const errors = JSON.parse(process.env.ERRORS);
+          const time = process.env.TIME;
+          console.log('Errors:', errors);
+          console.log('Time:', time);
           "
         
