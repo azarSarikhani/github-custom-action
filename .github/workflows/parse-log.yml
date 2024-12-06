@@ -19,14 +19,12 @@ on:
 jobs:
   parse-logs:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.time }}
-    
+
     steps:
       - name: Fix node version
         uses: actions/setup-node@v4
         with:
-          node-version: '20.18.1'
+          node-version: "20.18.1"
 
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -42,7 +40,7 @@ jobs:
 
       - name: Set up dependencies
         run: sudo npm install @actions/core
-      
+
       - name: Print Working Directory
         run: pwd
 
@@ -50,7 +48,7 @@ jobs:
         run: ls -a -R .
 
       - name: List Action Directory
-        run: ls -a -R .github/actions/error-annotator  
+        run: ls -a -R .github/actions/error-annotator
 
       - name: Determine Log Path
         id: log_path
@@ -71,10 +69,14 @@ jobs:
 
       - name: Print Log Path
         run: echo "log-path input -- ${{ env.log-path }}"
-      
+
       - name: Parse Unity Logs
-        id: step1
+        id: logStep
         uses: ./.github/actions/error-annotator
         with:
           log-path: ${{ env.log-path }}
 
+      - name: Print output
+        run: |
+          echo "output of log step for variable time is ${{ steps.logStep.outputs.time }}"
+          echo "output of log step for variable error is ${{ steps.logStep.outputs.time }}"
