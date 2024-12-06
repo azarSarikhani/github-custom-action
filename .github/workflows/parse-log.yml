@@ -39,9 +39,7 @@ jobs:
           lsb_release -a
 
       - name: Set up dependencies
-        run: |
-          sudo npm install @actions/github
-          sudo npm install @actions/core
+        run: sudo npm install @actions/core
       
       - name: Debug Working Directory
         run: pwd
