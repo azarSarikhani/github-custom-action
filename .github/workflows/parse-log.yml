@@ -71,7 +71,7 @@ jobs:
           log-path: ${{ env.log-path }}
 
       - name: Print time output
-        run: echo ${{ steps.logStep.outputs.time }}
+        run: echo "${{ steps.logStep.outputs.time }}"
 
       - name: Print Errors output
         run: |
