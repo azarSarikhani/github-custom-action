@@ -72,7 +72,7 @@ jobs:
 
       - name: Print output
         run: |
-          node scripts/printErrors.js
+          node ./scripts/printErrors.js
         env:
           ERRORS: ${{ steps.logStep.outputs.errors }}
         
