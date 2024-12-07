@@ -70,7 +70,10 @@ jobs:
         with:
           log-path: ${{ env.log-path }}
 
-      - name: Print output
+      - name: Print time output
+        run: echo ${{ steps.logStep.outputs.time }}
+
+      - name: Print Errors output
         run: |
           node ./.github/workflows/scripts/printErrors.js
         env:
