@@ -73,7 +73,7 @@ jobs:
       - name: Print outputs
         run: |
           echo "${{ steps.logStep.outputs.time }}"
-          echo '${{ steps.logStep.outputs.time }}'
+          echo '${{ steps.logStep.outputs.errors }}'
 
       - name: Print Errors output
         run: |
