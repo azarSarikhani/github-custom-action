@@ -72,10 +72,7 @@ jobs:
 
       - name: Print output
         run: |
-          node -e "
-          const errors = JSON.parse(process.env.ERRORS);
-          const time = process.env.TIME;
-          console.log('Errors:', errors);
-          console.log('Time:', time);
-          "
+          node scripts/printErrors.js
+        env:
+          ERRORS: ${{ steps.logStep.outputs.errors }}
         
