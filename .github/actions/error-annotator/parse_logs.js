@@ -56,11 +56,13 @@ function main() {
         // Set errors to action output
         if (errors.length > 0) {
             core.setOutput("errors", JSON.stringify(errors.map((e) => e.text)));
-			//debug message
-			const errorMessages = JSON.stringify(errors.map((e) => e.text));
-			console.log("Debug - Format of errors output:", errorMessages);
-		
         }
+		else {
+			core.setOutput("errors", JSON.stringify([]));
+		}
+		//debug message
+		const errorMessages = JSON.stringify(errors.map((e) => e.text));
+		console.log("Debug - Format of errors output:", errorMessages);
     } catch (error) {
         // In case of unexpected errors fail the action gracefully and log the error message
         core.setFailed(error.message);
