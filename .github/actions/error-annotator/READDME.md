@@ -4,7 +4,7 @@ This GitHub Action parses Unity Editor log files to identify and annotate errors
 
 ## **Features**
 
-- Extracts errors and warnings from Unity log files. This includes any distinct error, warning, fail, and exception words in the log.
+- Extracts errors and warnings from Unity log files. This includes any distinct occurance of any of the words error, warning, fail, and exception in the log.
 - Annotates errors and warnings in GitHub Actions for visibility.
 - Outputs a list of parsed errors for further use in workflows.
 
@@ -12,7 +12,7 @@ This GitHub Action parses Unity Editor log files to identify and annotate errors
 
 ## **Requirements**
 
-- @actions/core is required to have been either present in the repo or to have been installed on the runner. It could be installed in either using
+- @actions/core is required to have been either present in the repo or to have been installed on the runner. It could be installed in either, using
 
 ```bash
 	npm install @actions/core
@@ -32,10 +32,10 @@ Provide the relative path to the Unity log file within the repository.
 
 ## **Outputs**
 
-### **`errors`** and  **`warnings`** 
-- **Description**: A list of parsed errors and warnings extracted from the log file.
+### **`errors`**
+- **Description**: A list of parsed errors extracted from the log file.
 
-If no errors are found, the output will explicitly state "No errors found."
+If no errors are found, the output will be an empty array."
 
 ---
 
@@ -66,9 +66,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up dependencies
-        run: |
-          sudo npm install @actions/github
-          sudo npm install @actions/core
+        run: sudo npm install @actions/core
 
       - name: Parse Unity Logs
         uses: ./.github/actions/error-annotator

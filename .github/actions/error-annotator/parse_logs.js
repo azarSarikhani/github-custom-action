@@ -61,9 +61,6 @@ function main() {
 			console.log("Debug - Format of errors output:", errorMessages);
 		
         }
-		//test setting time as output
-		const time = (new Date()).toTimeString();
-	    core.setOutput("time", time);
     } catch (error) {
         // In case of unexpected errors fail the action gracefully and log the error message
         core.setFailed(error.message);

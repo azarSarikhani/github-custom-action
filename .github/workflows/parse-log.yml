@@ -9,6 +9,7 @@ on:
         options:
           - "logs/sample-project-failure.log"
           - "logs/sample-project-success.log"
+          - "logs/sample-no-errors.log"
   push:
     branches:
       - main
