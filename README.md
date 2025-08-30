@@ -1,3 +1,4 @@
+# **Assignment details**
 # Build Engineer Homework
 
 Imagine a case where developers would like to have info on potential causes of failures without having to navigate to read github action logs. Your task is to write a [custom GitHub Action](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions) capable of parsing Unity Editor log files for errors and warnings. The parsed results should be presented in [GitHub Workflow Summary Annotations](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#example-creating-an-annotation-for-an-error) and errors set as action outputs..
